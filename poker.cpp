@@ -696,7 +696,7 @@ void poker::displayMenu()
 	cout<<"|  5.Quit    |"<<endl;
 	cout<<"|------------|"<<endl;
 }
-
+/*
 Function Prototype:
 	void poker::handChecker(int i)
 Function Description:
@@ -708,7 +708,7 @@ Pre Condition:
 	All hand functions need to have run, sortRiver() needs to have run, menuCommand needs to be defined by input
 Post Condition:
 	Will print out the best hand combination possible
-
+*/
 void poker::handChecker(int i)
 {
 	cout << endl;
