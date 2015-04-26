@@ -96,6 +96,7 @@ int main()
 				OBJ->displayRules();
 			}
 		}
+		OBJ->resetDeck();
 
 
 	}
