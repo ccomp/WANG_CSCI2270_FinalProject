@@ -8,6 +8,19 @@
 
 using namespace std;
 
+/*
+Function Prototype:
+	int main()
+Function Description:
+	This is the main function that runs everything
+Example:
+	int main()
+Pre Condition:
+	All functions within the main function executes properly
+Post Condition:
+	Code Runs
+*/
+
 int main()
 {
 	string userName;
