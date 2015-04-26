@@ -112,10 +112,9 @@ Post Condition:
 
 void poker::resetDeck()
 {
-	weightArr = resetSuit;
-	suitArr = resetSuit;
+
 	stupidSolution.clear();
-	river = 0;
+
 }
 
 void poker::setPlayerCards()
