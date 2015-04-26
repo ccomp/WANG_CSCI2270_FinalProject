@@ -1,4 +1,5 @@
 	/*
+List of Suits for reference
 1. Highest Card
 2. 1 Pair
 3. 2 Pair
@@ -20,8 +21,18 @@
 #include "poker.h"
 
 using namespace std;
+/*
+Prototype: 
+	void poker::displayTitle();
+Description: 
+	Displays the title screen 
+Example: 
+	poker OBJ;
+	OBJ->displayTitle()
+Pre Condition: No preconditions necessary
+Post Condition: After this function executes you will now see the title displayed
 
-
+*/
 void poker::displayTitle(){
 	cout<<"-----------------------------------------------------------------------------"<<endl;
 	cout<<"| ------------------------------------------------------------------------- |"<<endl;
@@ -46,6 +57,21 @@ void poker::displayTitle(){
 	cout<<"                         @@@@@@@@@@@@@@@@@@@@@@@@@@@                         "<<endl;
 }
 
+/*
+Function Protoype: 
+	card* poker::assignCards()
+	
+Description: 
+	This method assigns a card to any slot through random number generation and putsused cards into a vector
+	
+Example:
+	poker OBJ;
+	OBJ->assignCards()
+
+Precondition: None
+Post Condition: Random card is picked and stored
+
+*/
 card* poker::assignCards()
 {
 	srand(time(NULL));
@@ -68,6 +94,22 @@ card* poker::assignCards()
 	return c;
 }
 
+/*
+Function prototype:
+	void poker::resetDeck()
+Function Description:
+	This method resets the deck after one round 
+Example:
+	poker OBJ;
+	OBJ->resetDeck()
+Pre Condition: 
+	None
+Post Condition: 
+	Clears the vector and resets the cards
+
+
+*/
+
 void poker::resetDeck()
 {
 	weightArr = resetSuit;
@@ -85,7 +127,20 @@ void poker::setPlayerCards()
 
 }
 
+/*
+Function Prototype:
+	void poker::displayTable()
+FUnction Description:
+	This method displays all the cards on the table and with the shuffled cards
+Example:
+	poker OBJ;
+	OBJ->displayTable()
+Pre Condition: 
+	riverArr is not empty
+Post Condition:
+	Display of cards is printed on screen
 
+*/
 
 void poker::displayTable()
 {
@@ -157,6 +212,21 @@ void poker::displayTable()
 	
 		
 }
+
+/*
+Function Prototype:
+	void poker::hold()
+Function Description:
+	Asks for which cards the user wants to discard
+Example:
+	poker OBJ;
+	OBJ->hold()
+Pre Condition: 
+	riverArr is not empty, 
+Post Condition:
+	Assigns cards to be discarded
+*/
+
 void poker::hold()
 {
 	int cardsToHold = 0;
@@ -176,6 +246,21 @@ void poker::hold()
 	
 
 }
+
+/*
+Function Protoype:
+	void poker::sortRiver()
+Function Description:
+	Bubble sorts the cards on screen 
+Example:
+	poker OBJ;
+	OBJ->sortRiver()
+Pre Condition:
+	riverArr is not empty, 
+Post Condition:
+	Cards are sorted and can now be checked for hands
+
+*/
 
 void poker::sortRiver()
 {
@@ -198,6 +283,20 @@ void poker::sortRiver()
         }
     }
 }
+
+/*
+Function Prototype:
+	bool poker::isStraight()
+Function Description:
+	This method checks the cards for a straight
+Example:
+	poker OBJ;
+	OBJ->isStraight()
+Pre Condition:
+	riverArr is not empty and sortRiver() has run
+Post Condition:
+	Returns true if straight is found
+*/
 
 bool poker::isStraight()
 {
@@ -222,6 +321,20 @@ bool poker::isStraight()
 		return false;
 	}
 }
+
+/*
+Function Prototype:
+	bool poker::isFlush()
+Function Description:
+	This method checks if there is a Flush in the hand
+Example:
+	poker OBJ;
+	OBJ->isFlush()
+Pre Condition:
+	riverArr is not empty and sortRiver() has run;
+Post Condition:
+	Returns True if hand contains a flush
+*/
 
 bool poker::isFlush()
 {
@@ -260,6 +373,20 @@ bool poker::isFlush()
 
 }
 
+/*
+Function Prototype:
+	boolPoker::isFourOfAKind()
+Function Description:
+	This method checks the hand for Four of a kind
+Example:
+	poker OBJ;
+	OBJ->isFOurOFAKind()
+Pre Condition:
+	riverArr and totalArr are not empty and sortRiver() has run
+Post Condition:
+	Returns true if Four of a kind is found
+*/
+
 bool poker::isFourOfAKind()
 {
 	/*
@@ -296,6 +423,20 @@ bool poker::isFourOfAKind()
 	}
 }
 
+/*
+Function Prototype:
+	bool poker::isRoyalFlush()
+Function Description:
+	This method checks the hand for a Royal Flush
+Example:
+	poker OBJ;
+	OBJ->isRoyalFlush()
+Pre Condition:
+	riverArr and totalArr is not empty and sortRiver() has run
+Post Condition:
+	Returns ture if Royal FLush is found
+*/
+
 bool poker::isRoyalFlush()
 {
 	bool flag1 = isFlush();
@@ -312,6 +453,20 @@ bool poker::isRoyalFlush()
 	}
 }
 
+/*
+Function Prototype:
+	bool poker::isStraightFlush()
+Function Description:
+	This method searches the hand for a Straight Flush
+Example:
+	poker OBJ;
+	OBJ->isStraightFlush
+Pre Condition:
+	isFlush() isStraight() isRoyalFlush() and sortRiver() has run
+Post Condition:
+	Returns ture if Straight Flush is found
+*/
+
 bool poker::isStraightFlush()
 {
 	bool flag1 = isFlush();
@@ -326,6 +481,20 @@ bool poker::isStraightFlush()
 		return false;
 	}
 }
+
+/*
+Function Prototype:
+	bool poker::isThreeofAKind()
+Function Description
+	This method searches for a Three of a Kind
+Example:
+	poker OBJ;
+	OBJ->isThreeOfAKind()
+Pre Condition:
+	totalArr is not empty and sortRiver() has run
+Post Condition:
+	Returns true if a Three of a kind is found
+*/
 
 bool poker::isThreeOfAKind()
 {
@@ -354,6 +523,20 @@ bool poker::isThreeOfAKind()
 		return false;
 	}
 }
+
+/*
+Function Prototype:
+	bool poker::isFullHouse()
+Function Description:
+	This method checks the cards for a Full House
+Example:
+	poker OBJ;
+	OBJ->isFullHouse()
+Pre Condition:
+	totalArr is not empty and sortRiver() has run
+Post COndition:
+	Returns ture if Full House is found
+*/
 
 bool poker::isFullHouse()
 {
@@ -415,6 +598,20 @@ bool poker::isFullHouse()
 	}
 }
 
+/*
+Function Prototype:
+	bool poker::isTwoPair()
+Function Description:
+	This method searches the cards for a Two Pair
+Example: 
+	poker OBJ;
+	OBJ->isTwoPair()
+Pre Condition:
+	isFourOfAKind() isThreOfAKind() and sortRiver() has run
+Post Condition:
+	Returns true if Two Pair is found
+*/
+
 bool poker::isTwoPair()
 {
 	int count = 0;
@@ -438,6 +635,20 @@ bool poker::isTwoPair()
 	}
 }
 
+/*
+Function Prototype:
+	bool poker::isOnePair()
+Function Description:
+	This method searches the cards for a pair of Jack or greater
+Example:
+	poker OBJ;
+	OBJ->isOnePair()
+Pre Condition:
+	isFourOfAKind() isThreeOfAKind() isTwoPair() and sortRiver() has run
+Post Condition:
+	Returns true if a pair of Jacks or better is found
+*/
+
 bool poker::isOnePair()
 {
 	int count = 0;
@@ -460,6 +671,21 @@ bool poker::isOnePair()
 		return false;
 	}
 }
+
+/*
+Function Prototype:
+	void poker::displayMenu()
+Function Description:
+	This method displays a menu of options
+Example:
+	poker OBJ;
+	OBJ->displayMenu()
+Pre Condition:
+	None
+Post Condition:
+	Displays menu
+*/
+
 void poker::displayMenu()
 {
 	cout<<"|------------|"<<endl;
@@ -471,6 +697,18 @@ void poker::displayMenu()
 	cout<<"|  5.Quit    |"<<endl;
 	cout<<"|------------|"<<endl;
 }
+
+Function Prototype:
+	void poker::handChecker(int i)
+Function Description:
+	This method finds the best hand by calling the hand functions in order from best to worst
+Example:
+	poker OBJ;
+	OBJ->handChecker(menuCommand)
+Pre Condition:
+	All hand functions need to have run, sortRiver() needs to have run, menuCommand needs to be defined by input
+Post Condition:
+	Will print out the best hand combination possible
 
 void poker::handChecker(int i)
 {
@@ -526,6 +764,20 @@ void poker::handChecker(int i)
 	}
 }
 
+/*
+Function Prototype:
+	void poker::displayValues()
+Function Description:
+	This method displays a menu showing the values for the various hands implenting the multipliers based on size of bet
+Example:
+	poker OBJ:
+	OBJ->dipslayValues()
+Pre Condition:
+	None
+Post Condition:
+	Menu of money values per hand is printed
+*/
+
 void poker::displayValues()
 {
 	cout << "------------------------------------" << endl;
@@ -540,6 +792,20 @@ void poker::displayValues()
 	cout << "| Jacks or Better" << "| " << 1 << "   | " << 2 << "   | " << 3 << "   | " << endl;
 	cout << "------------------------------------" << endl;
 }
+
+/*
+Function Prototype:
+	void poker::displayRules()
+Function Description:
+	This method displays the rules when the user requests it
+Example:
+	poker OBJ;
+	OBJ->displayRules()
+Pre Condition:
+	menuCommand == 4
+Post Condition:
+	Prints rules
+*/
 
 void poker::displayRules()
 {
@@ -556,6 +822,20 @@ void poker::displayRules()
 	cout << "       The better the hand you have the more money you will make       " << endl;
 	cout << "                               Good Luck!                              " << endl;
 }
+
+/*
+Function Prototype:
+	void poker::testRiver()
+Function Description:
+	This method was a test method to test specific instances of hands
+Example:
+	poker OBJ;
+	OBJ->testRiver()
+Pre Condition:
+	None
+Post Condition:
+	Rewrites the cards to pre set cards
+*/
 
 void poker::testRiver()
 {
